@@ -11,15 +11,18 @@ defmodule Hangman.MixProject do
     ]
   end
 
+  # Run "mix help compile.app" to learn about applications.
   def application do
     [
+      mod: { Hangman.Runtime.Application, [] },
       extra_applications: [:logger]
     ]
   end
 
   defp deps do
     [
-      { :dictionary, path: "../dictionary" },
+      {:dictionary, path: "../dictionary" },
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
     ]
   end
 end
